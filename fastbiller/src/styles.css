@@ -1,0 +1,130 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background: #4fa2ff; /* Primary blue */
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left {
+    display: flex;
+    gap: 1.5rem;
+}
+
+    .nav-left a, .nav-btn {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+        padding: 10px 15px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+        .nav-left a:hover, .nav-btn:hover {
+            color: #003d73; /* Darker blue */
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Active Link */
+        .nav-left a.active {
+            color: #003d73;
+            font-weight: 600;
+            border-bottom: 2px solid #003d73;
+        }
+.nav-right {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 10px; /* Add spacing between elements */
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white !important; /* Ensure white background */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.nav-right .dropdown-menu {
+    left: -60px;
+}
+
+    .dropdown-menu a, .dropdown-menu button {
+        color: #275796 !important; /* Blue text */
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 14px;
+        border: none;
+        background: white !important;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.3s ease-in-out !important;
+        width: 100%;
+    }
+
+        .dropdown-menu a:hover, .dropdown-menu button:hover {
+            background: #96c4ff !important; /* Blue hover */
+        }
+
+
+
+/* Overlay (Settings Popup) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+}
+
+/* Print Styles */
+@media print {
+    .hidden-toolbar, .navbar {
+        display: none;
+    }
+}
+
+/* Print Margin Controls */
+.margin-controls input {
+    border: 1px solid black;
+    margin-bottom: 3px;
+}

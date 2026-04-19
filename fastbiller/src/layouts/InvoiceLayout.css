@@ -1,0 +1,374 @@
+.create-bill-container {
+    position: relative;
+    padding: 1rem;
+    background: #f9f9f9;
+    /*change here for margin on all sides for letter pads*/
+}
+
+.mainContainer {
+    height: 100mm;
+}
+
+/* A4 sizing for printing */
+.invoice-a4 {
+    width: 250mm;
+    margin: 0 auto;
+    background: white;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+
+/* Default state: No border */
+input, textarea, select {
+    border: 1px solid transparent;
+    background-color: transparent;
+    outline: none; /* Ensures no default outline */
+}
+
+    /* When an element is focused: Blue border */
+    input:focus, textarea:focus, select:focus {
+        border: 1px solid blue;
+        outline: none;
+    }
+
+
+
+/* For print */
+/*min-height: 297mm !important;*/
+/*
+@media print {
+  .hidden-toolbar {
+    display: none;
+  }
+  .invoice-a4 {
+    border: none;
+    margin: 0;
+    width: 210mm !important;
+    
+  }
+}*/
+
+/* Top section layout */
+.invoice-top {
+    margin-bottom: 10px;
+}
+
+.invoice-row {
+    display: flex;
+}
+
+.cell {
+    flex: 1;
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.cell-company-name input {
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.cell-company-address textarea {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    max-width: 248.5mm;
+    min-width: 248.5mm;
+    border-bottom: 1px solid black;
+}
+
+.cell-selects {
+    font-size: 15px;
+    border: none;
+}
+
+.cell-bill-ship {
+    flex: 1;
+    position: relative;
+    margin-right: 5px;
+}
+
+    .cell-bill-ship input {
+        width: 100%;
+    }
+
+/*button*/
+.btn {
+    margin: 4mm 0mm 0mm 100mm;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: white;
+    background-color: #61abff; /* light Blue background */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sbtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.btn:active {
+    background-color: #003d80; /* Even darker blue on click */
+    transform: scale(0.98); /* Slight press effect */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Save button shows only on focus or hover */
+.save-button {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out, transform 0.15s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+    .save-button.noTop {
+        top: 0px;
+        margin-top: -2px;
+    }
+
+    /* Subtle scale-up effect on hover */
+    .save-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 2px 6px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Click effect */
+    .save-button:active {
+        transform: scale(0.95);
+    }
+
+/* Show on focus or hover of the container */
+.cell:hover .save-button,
+.cell:focus-within .save-button,
+.body-row:hover .save-button,
+.body-row:focus-within .save-button,
+.bottom-row .col:hover .save-button,
+.bottom-row .col:focus-within .save-button {
+    opacity: 1;
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+/* Body section table */
+.invoice-body {
+    margin-top: -8px;
+}
+
+.body-header {
+    background: #eee;
+    font-weight: bold;
+    text-align: center;
+}
+
+    .body-header > div {
+        border-right: 1px solid #ccc; /* Light border between divs */
+    }
+
+        .body-header > div:last-child {
+            border-right: none; /* Remove border from the last div */
+        }
+
+    .body-header div,
+    .body-row div {
+        box-sizing: border-box; /* Prevents extra padding affecting width */
+    }
+
+    .body-row div,
+    .body-header div {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.body-row input {
+    width: 90%;
+}
+
+
+/* Hide number input arrows in Chrome, Safari, Edge, and Opera */
+.invoice-body input[type="number"]::-webkit-inner-spin-button,
+.invoice-body input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide number input arrows in Firefox */
+.invoice-body input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.invoice-body input::-webkit-calendar-picker-indicator {
+    display: none !important;
+    appearance: none;
+}
+
+.invoice-body input::-webkit-datalist-button {
+    display: none !important;
+}
+
+.invoice-body input {
+    appearance: none;
+}
+
+
+/*action*/
+/* Position Action Buttons */
+.action-buttons {
+    position: absolute;
+    right: -52px;
+    margin-top: -1.5px;
+    display: flex;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure Action Column Stays the Same */
+.add-row-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.action-buttons {
+    position: absolute;
+    right: -52px;
+    display: none;
+}
+
+    .body-row:hover .action-buttons,
+    .action-buttons:focus-within {
+        display: flex;
+        width: 22mm;
+    }
+
+
+.add-row-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.add-row-button {
+    display: none;
+    font-size: 20px;
+    padding: 2px 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.invoice-body:hover .add-row-button {
+    display: block; /* Show button on hover */
+}
+
+.add-row-button:hover {
+    background: #0056b3;
+}
+
+.settings-button {
+    display: none;
+    font-size: 18px;
+    padding: 3px 8px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 10%;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.invoice-body:hover .settings-button {
+    display: block; /* Show button on hover */
+}
+.settings-button:hover {
+    background: #0056b3;
+}
+
+
+/* Bottom section */
+.invoice-bottom {
+    margin-top: 10px;
+}
+
+.bottom-row {
+    display: flex;
+    padding: 5px 0;
+}
+
+.col {
+    flex: 1;
+    padding: 0 5px;
+    position: relative;
+}
+
+.col2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.signature-area {
+    margin-top: auto; /* Push it to the bottom */
+    font-weight: bold;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 211mm;
+}
+
+.center {
+    align-items: center;
+}
+
+.invoice-table {
+    width: 100%;
+    table-layout: fixed;
+    border: none;
+    margin-top: -3px;
+    border-bottom: 1px solid black;
+}
+
+    .invoice-table td {
+        width: 33.33%;
+        vertical-align: middle;
+        border: none;
+    }
+
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.right-align {
+    text-align: right;
+}
