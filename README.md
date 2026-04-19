@@ -1,4 +1,4 @@
-# ⚡ QuickBiller
+# ⚡ FastBiller
 
 A fast and intuitive billing application designed to **eliminate traditional form-based workflows** and let users create bills directly on the final bill layout.
 
@@ -15,6 +15,13 @@ QuickBiller solves this by allowing users to:
 > **Create and edit bills directly on the final bill view (WYSIWYG)**
 
 What you see is exactly what gets printed.
+
+---
+## Video
+
+
+https://github.com/user-attachments/assets/242c86be-2f86-41c9-8ff4-a33227cf7ae3
+
 
 ---
 
@@ -71,21 +78,11 @@ Instead of separating input and output, QuickBiller uses:
 
 ---
 
-## 🧠 What I Learned
-
-- Simpler UX beats feature-heavy systems  
-- Direct manipulation improves productivity  
-- Real-world full-stack integration challenges  
-- Importance of designing for actual users  
-
----
-
 ## 🔮 Future Improvements
 
-- Multi-user support  
 - Cloud sync & backups  
-- Advanced reports  
-- Role-based access control  
+- Advanced reports
+- multiple bill layouts
 
 ---
 
@@ -100,4 +97,36 @@ Instead of separating input and output, QuickBiller uses:
 
 1. Clone the repository  
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/ShreySanja/Fast-Biller.git
+```
+
+2. Install dependencies
+For backend:
+```bash
+cd fastbiller-server
+npm install
+```
+For frontend:
+```bash
+cd fastbiller
+npm install
+```
+
+3. Start the application
+
+Run backend:
+```bash
+node server.js
+```
+Run frontend:
+```bash
+npm start
+```
+
+4. Open in browser
+```bash
+http://localhost:3000
+```
+
+## 🤝 Contribution
+feel free to explore, improve, and contribute by submitting a pull request.
